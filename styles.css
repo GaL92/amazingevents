@@ -1,0 +1,16 @@
+.navbar-nav{
+    font-size: 120%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.div{
+    display:inline;
+}
+.card{
+    display: inline;
+    flex-wrap: wrap;
+    gap: 20px;
+    background-color:aqua;
+    
+}
