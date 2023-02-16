@@ -4,13 +4,48 @@
     justify-content: space-between;
 }
 
-.div{
-    display:inline;
-}
+
 .card{
     display: inline;
     flex-wrap: wrap;
     gap: 20px;
-    background-color:aqua;
-    
+    background-color:aqua; 
 }
+
+.nav-link.active{
+background-color: aqua;
+} 
+
+.controles{
+    display:flex;
+    justify-content:space-between;
+    align-items: center;
+}
+
+.events.row.container{
+    display: container;
+    align-self: center;
+    background-color:coral;
+    max-width: 100%;
+    
+
+}
+
+footer{
+    display: flex;
+    justify-content:space-between;
+    align-items:center;
+    padding: 20px;
+    background-color: aqua;
+    margin-right: 12px;
+}
+
+.redes{
+    display: flex;
+    gap:10px;
+}
+
+.text{
+   padding-right: 60px;
+}
+
