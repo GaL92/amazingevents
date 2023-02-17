@@ -11,7 +11,7 @@
 </head>
 
 <body>
-  <nav class="navbar navbar-expand-lg bg-body-tertiary">
+  <nav class="navbar navbar-expand-lg">
     <div class="container-fluid">
       <img src="./assets/Logo-AE.png" width="20%" height="20%"alt="">
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
@@ -19,17 +19,31 @@
       </button>
       <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
         <div class="navbar-nav ms-auto">
-          <a class="nav-link " aria-current="page" href="#">Home</a>
-          <a class="nav-link active" href="./upcomingevents.html">Umpcoming Events</a>
+          <a class="nav-link " aria-current="page" href="./home.html">Home</a>
+          <a class="nav-link " href="./upcomingevents.html">Umpcoming Events</a>
           <a class="nav-link" href="./pastevents.html">Past Events</a>
           <a class="nav-link " href="./contact.html">Contact</a>
-          <a class="nav-link " href="./stats.html">Stats</a>
+          <a class="nav-link active" href="./stats.html">Stats</a>
         </div>
       </div>
     </div>
   </nav>
-
-  <section>
+  <header>
+    <div class="banner">
+      <div class="l-icon">
+        <a href="./contact.html"><i>&#5176;</i></a>
+      </div>
+      <div class="banner-titulo">
+        <strong><h2>STATS</h2></strong>
+      </div>
+      <div class="l-icon">
+        <a href=""><i>&#5171;</i></a>
+      </div>
+  
+    </div>
+  </header>
+  <div class="stats-table">
+    <div class="stats">
     <table class="table table-bordered my-3">
         <thead>
 
@@ -140,11 +154,30 @@
           
         </tbody>
       </table>
-
-  </section>
+    </div>
+    </div>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
 </body>
 <footer>
 
-</footer>
+  <div class="redes">
+  
+    <div class="social">
+     <a href="www.instagram.com"><img src="./assets/instagram.png" width="30px" height="30px" alt="instagram">
+    </a> 
+     
+    </div  class="inline">
+    <div class="social">
+      <img src="./assets/facebook (1).png"  width="30px" height="30px"alt="facebook">
+    </div>
+    <div class="social">
+      <img src="./assets/whatsapp.png"  width="30px" height="30px"alt="whatsapp">
+    </div>
+  
+  </div>
+  
+  <div class="text">
+    <h3>Cohort</h3>
+  </div>
+  </footer>
 </html>

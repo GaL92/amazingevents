@@ -1,7 +1,32 @@
+
+.banner{
+    display: flex;
+    justify-content: space-around;
+    padding:50px;
+    background-color: rgba(0, 0, 0, 0.1);
+    max-width: 100%;
+    font-family: "Helvetica Neue",Helvetica,Arial;
+    text-align: center;
+    color:rgb(50, 50, 50);
+
+}
+
+.l-icon img{
+    
+    display: flex;
+    
+}
+
+.navbar{
+    background-color: hsla(230, 80%, 12%,0.9);
+    
+}
+
 .navbar-nav{
     font-size: 120%;
     display: flex;
     justify-content: space-between;
+    
 }
 
 
@@ -9,23 +34,53 @@
     display: inline;
     flex-wrap: wrap;
     gap: 20px;
-    background-color:aqua; 
+    
 }
 
 .nav-link.active{
-background-color: aqua;
+background-color: rgba(132, 132, 131, 0.2);
+
 } 
+
+a.nav-link{
+    color:white;
+}
 
 .controles{
     display:flex;
     justify-content:space-between;
     align-items: center;
+    background-color: hsla(232, 49%, 51%, 0.6);
 }
+
+form.d-flex input {
+    width: 500px;
+}
+
+
+
+.caja-form{
+    display: flex;
+    max-width: 100%;
+    align-items: center;
+    justify-content: center;
+}
+.form-contact{
+    width: 50%;
+    height: 50%;
+    margin: 30px;
+    padding:20px;
+    background-color: hsla(232, 49%, 51%, 0.6);
+    border: solid;
+    font-size:20px;
+    
+}
+
 
 .events.row.container{
     display: container;
     align-self: center;
-    background-color:coral;
+    background-color: hsla(232, 49%, 51%, 0.6);
     max-width: 100%;
     
 
@@ -36,7 +91,7 @@ footer{
     justify-content:space-between;
     align-items:center;
     padding: 20px;
-    background-color: aqua;
+    background-color: hsla(232, 49%, 51%, 0.805);
     margin-right: 12px;
 }
 
@@ -47,5 +102,19 @@ footer{
 
 .text{
    padding-right: 60px;
+}
+
+.stats-table{
+    margin: 20px;
+    padding: 20px;
+}
+
+
+
+table tr{
+ 
+    border-color: black;
+    text-align: center;
+    font-weight: bold;
 }
 
