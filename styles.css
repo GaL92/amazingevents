@@ -31,10 +31,14 @@
 
 
 .card{
-    display: inline;
+    display: inline-flex;
     flex-wrap: wrap;
-    gap: 20px;
     
+}
+
+.card img{
+    max-width: 100%;
+    padding: 5px;
 }
 
 .nav-link.active{
@@ -51,11 +55,11 @@ a.nav-link{
     justify-content:space-between;
     align-items: center;
     background-color: hsla(232, 49%, 51%, 0.6);
+
 }
 
-form.d-flex input {
-    width: 500px;
-}
+
+
 
 
 
