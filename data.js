@@ -181,7 +181,7 @@ function createCard(event){
     <div class="card-body">
       <h5 class="card-title">${event.name}</h5>
       <p class="card-text">${event.description}</p>
-      <a href="#" class="btn btn-primary">Ver más</a>
+      <a href="#" class="btn">Ver más</a>
     </div>
   </div>
   </div>`
