@@ -44,7 +44,6 @@ button.navbar-toggler{
     border-color: rgb(82, 84, 84) !important;
 }
 
-
 .controles{
     display:flex;
     justify-content:space-between;
@@ -126,16 +125,21 @@ footer{
 }
 
 .stats-table{
-    margin: 20px;
-    padding: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    max-width: 100%;
+    background-color: hsla(232, 49%, 51%, 0.6);
 }
 
 
 
 table tr{
- 
+    
     border-color: black;
     text-align: center;
     font-weight: bold;
+    background-color:rgba(239, 233, 239, 0.6);
+    
 }
 
