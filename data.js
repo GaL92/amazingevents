@@ -186,3 +186,20 @@ function createCard(event){
   </div>
   </div>`
 }
+
+categories = [];
+data.events.forEach(evento => {
+  if (!categories.includes(evento.category)){
+    categories.push(evento.category)
+  }
+});
+console.log(categories); 
+
+
+/* let ul = document.querySelector("ul");
+let HTMLcategory = "";
+for (let category of category) {
+  HTMLcategory += `<li>${category}</li>`;
+}
+
+ul.innerHTML = HTMLcategory; */
