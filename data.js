@@ -187,7 +187,7 @@ function createCard(event){
   </div>`
 }
 
-categories = [];
+let categories = [];
 data.events.forEach(evento => {
   if (!categories.includes(evento.category)){
     categories.push(evento.category)
@@ -196,10 +196,22 @@ data.events.forEach(evento => {
 console.log(categories); 
 
 
-/* let ul = document.querySelector("ul");
-let HTMLcategory = "";
-for (let category of category) {
-  HTMLcategory += `<li>${category}</li>`;
-}
+function crearCheckbox(category) {
+  return `<div class="form-check form-check-inline">
+  <input class="form-check-input" type="checkbox" id="checkbox${category}" value="${category}" name="category">
+  <label class="form-check-label" for="checkbox${category}">${category}</label>
+</div>`;
+} 
 
-ul.innerHTML = HTMLcategory; */
+//Filtros con checkbox
+
+
+
+/* itemsCheckboxes.forEach(checkbox => checkbox.onClick = () =>{
+  let HTMLresultados = "";
+  let category = checkbox.innerText;
+  categories.filter(event => event.category == category).forEach(event =>
+    {HTMLresultados += crearCheckbox(event,HTMLresultados)});
+  document.querySelector('div.resultados').innerHTML = HTMLresultados;
+
+});   */
