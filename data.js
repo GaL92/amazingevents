@@ -175,12 +175,12 @@ let data = {
   
 
 function createCard(event){
-  return `<div class="col-12 p-2 col-md-4 col-xl-3" id="card">
+  return `<div class="col-12 p-2 col-md-4 col-xl-3" id="${event.id}">
   <div class="card">
     <img src="${event.image}">
     <div class="card-body">
-      <h5 class="card-title">${event.name}</h5>
-      <p class="card-text">${event.description}</p>
+      <h5 class="${event.name}">${event.name}</h5>
+      <p class="${event.description}">${event.description}</p>
       <a href="#" class="btn">Ver más</a>
     </div>
   </div>

@@ -46,11 +46,20 @@ button.navbar-toggler{
 
 .controles{
     display:flex;
+    flex-wrap: wrap;
     justify-content:space-between;
     align-items: center;
     background-color: hsla(232, 49%, 51%, 0.6);
+    
 }
 
+
+.search{
+ display: flex;
+}
+.form-control{
+    max-width: 100%;
+}
 .card{
     display: inline-flex;
     flex-wrap: wrap;
@@ -141,5 +150,11 @@ table tr{
     font-weight: bold;
     background-color:rgba(239, 233, 239, 0.6);
     
+}
+
+.container-fluid{
+    max-width: 100%;
+    margin: none;
+    padding: 0 !important;
 }
 

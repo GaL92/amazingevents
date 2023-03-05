@@ -32,9 +32,11 @@ itemsCheckboxes.forEach(checkbox => checkbox.onchange = () =>{
     itemsCheckboxes.forEach(checkbox => {
         if(checkbox.checked){
             categories.push(checkbox.value);
+            
         }
         
     });
+
     console.log(categories);
     
     
@@ -42,10 +44,24 @@ itemsCheckboxes.forEach(checkbox => checkbox.onchange = () =>{
       {HTMLresultados += createCard(event)});
 
       console.log(HTMLresultados);
-     
-    document.querySelector('div.resultados').innerHTML = HTMLresultados;
-  
-  });
 
+      document.querySelector('div.resultados').innerHTML = HTMLresultados; 
+     
+      
+    
+  }  );
+
+  
+
+ /*  itemsCheckboxes.forEach(checkbox => checkbox.onchange = () =>{
+    itemsCheckboxes.forEach(checkbox => {
+        if(!checkbox.checked){
+            document.querySelector('div.resultados').replaceWith('div.events');
+        }
+        
+    })
+    }) */
+
+ 
   
 
