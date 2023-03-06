@@ -1,5 +1,5 @@
 let home = "" ;
-let cardContainer = document.getElementById("card")
+let cardContainer = document.getElementById("card-container")
 
 for (let event of data.events){
 
@@ -33,34 +33,33 @@ itemsCheckboxes.forEach(checkbox => checkbox.onchange = () =>{
         if(checkbox.checked){
             categories.push(checkbox.value);
             
-        }
+        }  
         
     });
 
     console.log(categories);
     
-    
-    data.events.filter(event => categories.includes(event.category)).forEach(event =>
-      {HTMLresultados += createCard(event)});
-
-      console.log(HTMLresultados);
-
-      document.querySelector('div.resultados').innerHTML = HTMLresultados; 
-     
+    if(categories.length>0){
+        data.events.filter(event => categories.includes(event.category)).forEach(event =>
+            {HTMLresultados += createCard(event)});
       
+            console.log(HTMLresultados);
+      
+            
+    }else{
+        data.events.forEach(event =>
+            {HTMLresultados += createCard(event)});
+    }
+
+        document.querySelector('div.events').innerHTML = HTMLresultados; 
     
+    
+     
+     
   }  );
 
   
 
- /*  itemsCheckboxes.forEach(checkbox => checkbox.onchange = () =>{
-    itemsCheckboxes.forEach(checkbox => {
-        if(!checkbox.checked){
-            document.querySelector('div.resultados').replaceWith('div.events');
-        }
-        
-    })
-    }) */
 
  
   
