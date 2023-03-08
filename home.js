@@ -17,11 +17,14 @@ cardContainer.innerHTML = home;
 
 let checkbox = document.getElementById("checkbox");
 let home2 = "";
+let cardsbusqueda=[];
+
 for(let category of categories){
     home2 += crearCheckbox(category);
 }
 
 checkbox.innerHTML = home2;
+
 
 let itemsCheckboxes = document.querySelectorAll(".form-check-input");
 console.log(itemsCheckboxes);
@@ -39,26 +42,54 @@ itemsCheckboxes.forEach(checkbox => checkbox.onchange = () =>{
 
     console.log(categories);
     
-    if(categories.length>0){
+    if(categories.length>0 && cardsbusqueda.length <1){ //Filtras por checkbox pero no usás la búsqueda
         data.events.filter(event => categories.includes(event.category)).forEach(event =>
             {HTMLresultados += createCard(event)});
       
             console.log(HTMLresultados);
       
             
-    }else{
-        data.events.forEach(event =>
+    }else if(categories.length>0 && cardsbusqueda.length >0){ //Checkeas una categoría y usás la búsqueda
+        console.log(cardsbusqueda);
+        cardsbusqueda.filter(event => categories.includes(cardsbusqueda.category)).forEach(event =>
             {HTMLresultados += createCard(event)});
+      
+            console.log(HTMLresultados);
     }
+    
+    else{
+            data.events.forEach(event =>
+            {HTMLresultados += createCard(event)});
+        }
 
         document.querySelector('div.events').innerHTML = HTMLresultados; 
     
-    
-     
-     
   }  );
 
+
+  let inputBusqueda=document.getElementById("search");
+  document.querySelector("#form-busqueda").onsubmit = (e)=> {
+     e.preventDefault();
+  let resultadoBusqueda="";
   
+  let textingresado = inputBusqueda.value.toLowerCase().trim();
+  
+  for (let event of data.events) {
+     if (event.name.toLowerCase().includes(textingresado)
+     ||event.description.toLowerCase().includes(textingresado)) {
+        resultadoBusqueda+= createCard(event); 
+        cardsbusqueda.push(event);
+     }
+  }
+
+  console.log(resultadoBusqueda);
+  document.querySelector("#card-container").innerHTML=resultadoBusqueda;
+  }
+
+ 
+  
+
+
 
 
  
