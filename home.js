@@ -31,26 +31,39 @@ console.log(itemsCheckboxes);
 
 itemsCheckboxes.forEach(checkbox => checkbox.onchange = () =>{
     let HTMLresultados = "";
-    let categories = [];
+    let checkcategories = [];
     itemsCheckboxes.forEach(checkbox => {
         if(checkbox.checked ){
-            categories.push(checkbox.value);  
+            checkcategories.push(checkbox.value);  
         }
         
     });
 
-    console.log(categories);
+    console.log(checkcategories);
+
+    let textoingresado = inputBusqueda.value.toLowerCase().trim();
+    HTMLresultados = Busqueda(checkcategories,textoingresado)
+
+
+    document.querySelector('div.events').innerHTML = HTMLresultados; 
     
-    if(categories.length>0 && cardsbusqueda.length <1){ //Filtras por checkbox pero no usás la búsqueda
+  }  );
+
+
+  function Busqueda(categories,textoingresado){
+
+    let HTMLresultados="";
+
+    if(categories.length>0 && textoingresado == ""){ //Filtras por checkbox pero no usás la búsqueda
         data.events.filter(event => categories.includes(event.category)).forEach(event =>
             {HTMLresultados += createCard(event)});
       
             console.log(HTMLresultados);
       
             
-    }else if(categories.length>0 && cardsbusqueda.length >0){ //1°Checkeas una categoría y 2° usás la búsqueda
+    }else if(categories.length>0 && textoingresado != ""){ //1°Checkeas una categoría y 2° usás la búsqueda
         
-        cardsbusqueda.filter(event => categories.includes(event.category)).forEach(event =>
+       data.events.filter(event => categories.includes(event.category)).filter(event =>event.name.toLowerCase().includes(textoingresado) || event.description.toLowerCase().includes(textoingresado)).forEach(event =>
             {HTMLresultados += createCard(event)});
       
             console.log(HTMLresultados);
@@ -60,34 +73,44 @@ itemsCheckboxes.forEach(checkbox => checkbox.onchange = () =>{
             {HTMLresultados += createCard(event)});
         }
 
-        document.querySelector('div.events').innerHTML = HTMLresultados; 
-    
-  }  );
+        return HTMLresultados;
+  }
+
+
+
+
+
+  
+
+
+
 
 
   let inputBusqueda=document.getElementById("search");
 
   document.querySelector("#form-busqueda").onsubmit = (e)=> {
      e.preventDefault();
+     let HTMLresultados = "";
+     let checkcategories = [];
+     itemsCheckboxes.forEach(checkbox => {
+         if(checkbox.checked ){
+             checkcategories.push(checkbox.value);  
+         }
+         
+     });
+ 
+     console.log(checkcategories);
+ 
+     let textoingresado = inputBusqueda.value.toLowerCase().trim();
+     HTMLresultados = Busqueda(checkcategories,textoingresado);
+ 
+ 
+     document.querySelector('div.events').innerHTML = HTMLresultados; 
+   
 
-  let resultadoBusqueda="";
-  
-  let textingresado = inputBusqueda.value.toLowerCase().trim();
-  
-  for (let event of data.events) {
-     if (event.name.toLowerCase().includes(textingresado)
-     ||event.description.toLowerCase().includes(textingresado)) {
-        resultadoBusqueda+= createCard(event); 
-        cardsbusqueda.push(event);
-        categories = cardsbusqueda.category;
-        }  
-    }
-
-  console.log(resultadoBusqueda);
-  document.querySelector("#card-container").innerHTML=resultadoBusqueda;
   }
 
-console.log(cardsbusqueda)
+
  
   
 
