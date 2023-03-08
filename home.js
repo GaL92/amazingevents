@@ -33,10 +33,9 @@ itemsCheckboxes.forEach(checkbox => checkbox.onchange = () =>{
     let HTMLresultados = "";
     let categories = [];
     itemsCheckboxes.forEach(checkbox => {
-        if(checkbox.checked){
-            categories.push(checkbox.value);
-            
-        }  
+        if(checkbox.checked ){
+            categories.push(checkbox.value);  
+        }
         
     });
 
@@ -49,15 +48,14 @@ itemsCheckboxes.forEach(checkbox => checkbox.onchange = () =>{
             console.log(HTMLresultados);
       
             
-    }else if(categories.length>0 && cardsbusqueda.length >0){ //Checkeas una categoría y usás la búsqueda
-        console.log(cardsbusqueda);
-        cardsbusqueda.filter(event => categories.includes(cardsbusqueda.category)).forEach(event =>
+    }else if(categories.length>0 && cardsbusqueda.length >0){ //1°Checkeas una categoría y 2° usás la búsqueda
+        
+        cardsbusqueda.filter(event => categories.includes(event.category)).forEach(event =>
             {HTMLresultados += createCard(event)});
       
             console.log(HTMLresultados);
-    }
-    
-    else{
+            
+    }else if(categories.length==0 && cardsbusqueda.length == 0){
             data.events.forEach(event =>
             {HTMLresultados += createCard(event)});
         }
@@ -68,8 +66,10 @@ itemsCheckboxes.forEach(checkbox => checkbox.onchange = () =>{
 
 
   let inputBusqueda=document.getElementById("search");
+
   document.querySelector("#form-busqueda").onsubmit = (e)=> {
      e.preventDefault();
+
   let resultadoBusqueda="";
   
   let textingresado = inputBusqueda.value.toLowerCase().trim();
@@ -79,13 +79,15 @@ itemsCheckboxes.forEach(checkbox => checkbox.onchange = () =>{
      ||event.description.toLowerCase().includes(textingresado)) {
         resultadoBusqueda+= createCard(event); 
         cardsbusqueda.push(event);
-     }
-  }
+        categories = cardsbusqueda.category;
+        }  
+    }
 
   console.log(resultadoBusqueda);
   document.querySelector("#card-container").innerHTML=resultadoBusqueda;
   }
 
+console.log(cardsbusqueda)
  
   
 
