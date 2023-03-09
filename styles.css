@@ -63,18 +63,53 @@ button.navbar-toggler{
 .card{
     display: inline-flex;
     flex-wrap: wrap;
+    flex-grow: 1;
 }
 
 .card img{
     max-width: 100%;
-    padding: 5px;
+    max-height: 100%;
+    padding: 7px;
+}
+
+.precio-vermas {
+    display: inline-flex;
+    align-items: flex-end;
+    align-content: end;
+    justify-content: space-between;
+    position: relative;
+    top: 5px;
+    
 }
 
 .card-body a{
+    
     background: rgba(70, 68, 70, 0.2);
 }
 
-.caja-form{
+.caja-details{
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    
+    
+}
+
+.img-details{
+    object-fit:inherit;
+    width: 300px;
+	height: 275px;
+    clip-path: inset(0 5% 0 5%);
+}
+
+.text-details{
+    display:flex;
+    align-items: center;
+    justify-content: center;
+
+}
+
+.caja-section{
     display: flex;
     max-width: 100%;
     align-items: center;
@@ -158,3 +193,6 @@ table tr{
     padding: 0 !important;
 }
 
+.btn-outline-secondary{
+    color:black !important;
+}

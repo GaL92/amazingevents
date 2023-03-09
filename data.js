@@ -176,12 +176,15 @@ let data = {
 
 function createCard(event){
   return `<div class="col-12 p-2 col-md-4 col-xl-3" id="${event.id}">
-  <div class="card">
+  <div class="card h-100">
     <img src="${event.image}">
     <div class="card-body">
       <h5 class="${event.name}">${event.name}</h5>
       <p class="${event.description}">${event.description}</p>
-      <a href="#" class="btn">Ver más</a>
+      <div class=" precio-vermas d-grid gap-2 d-md-flex">
+          <p>Price: US$ ${event.price}</p>  
+          <a href="./details.html?id=${event._id}" class="btn  btn-outline-secondary ">Ver más..</a>
+        </div>
     </div>
   </div>
   </div>`
@@ -203,15 +206,4 @@ function crearCheckbox(category) {
 </div>`;
 } 
 
-//Filtros con checkbox
 
-
-
-/* itemsCheckboxes.forEach(checkbox => checkbox.onClick = () =>{
-  let HTMLresultados = "";
-  let category = checkbox.innerText;
-  categories.filter(event => event.category == category).forEach(event =>
-    {HTMLresultados += crearCheckbox(event,HTMLresultados)});
-  document.querySelector('div.resultados').innerHTML = HTMLresultados;
-
-});   */

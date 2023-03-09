@@ -26,61 +26,106 @@ for(let category of categories){
 
 checkbox.innerHTML = home2;
 
+
 let itemsCheckboxes = document.querySelectorAll(".form-check-input");
 console.log(itemsCheckboxes);
 
 itemsCheckboxes.forEach(checkbox => checkbox.onchange = () =>{
     let HTMLresultados = "";
-    let categories = [];
+    let checkcategories = [];
     itemsCheckboxes.forEach(checkbox => {
         if(checkbox.checked){
-            categories.push(checkbox.value);
+            checkcategories.push(checkbox.value);
             
         }  
         
     });
 
-    console.log(categories);
+    console.log(checkcategories);
     
-    if(categories.length>0){
-        pasteventslist.filter(event => categories.includes(event.category)).forEach(event =>
-            {HTMLresultados += createCard(event)});
-      
-            console.log(HTMLresultados);
-      
-            
-    }else{
-            pasteventslist.forEach(event =>
-            {HTMLresultados += createCard(event)});
-        }
+    let textoingresado = inputBusqueda.value.toLowerCase().trim();
+    HTMLresultados = Busqueda(checkcategories,textoingresado);
 
-        document.querySelector('div.events').innerHTML = HTMLresultados; 
+
+    document.querySelector('div.events').innerHTML = HTMLresultados; 
     
   }  );
-  
-  
-let cardsbusqueda=[];
 
-let inputBusqueda=document.getElementById("search");
-document.querySelector("#form-busqueda").onsubmit = (e)=> {
-   e.preventDefault();
 
-let resultadoBusqueda="";
+  function Busqueda(categories,textoingresado){
 
-let textingresado = inputBusqueda.value.toLowerCase().trim();
+    let HTMLresultados="";
 
-for (let event of pasteventslist) {
-    if (event.name.toLowerCase().includes(textingresado)
-    ||event.description.toLowerCase().includes(textingresado)) {
-       resultadoBusqueda+= createCard(event); 
-       cardsbusqueda.push(event);
+    if(categories.length>0 && textoingresado == ""){ //Filtras por checkbox pero no usás la búsqueda
+       pasteventslist.filter(event => categories.includes(event.category)).forEach(event =>
+            {HTMLresultados += createCard(event)
+                
+                });
+      
+            console.log(HTMLresultados);
+            
+    }else if(categories.length>0 && textoingresado != ""){ //1°Checkeas una categoría y 2° usás la búsqueda
+        
+       pasteventslist.filter(event => categories.includes(event.category)).filter(event =>event.name.toLowerCase().includes(textoingresado) || event.description.toLowerCase().includes(textoingresado)).forEach(event =>
+            {HTMLresultados += createCard(event)
+
+                    
+            });
+
+            if(HTMLresultados == ""){
+                HTMLresultados += `<div class="caja-section"><h2>No hay resultados para esta búsqueda.</h2></div>";`
+    
+            };
+            
+      
+            console.log(HTMLresultados);
+            
+    }else if(categories.length==0 && textoingresado == ""){
+            pasteventslist.forEach(event =>
+            {HTMLresultados += createCard(event)});
+
+            if(HTMLresultados == ""){
+                HTMLresultados += `<div class="caja-section"><h2>No hay resultados para esta búsqueda.</h2></div>";`
+    
+            };
 
     }
- }
+        
 
- console.log(resultadoBusqueda);
- document.querySelector("#card-container").innerHTML = resultadoBusqueda;
+        return HTMLresultados;
+  }
+
+  let inputBusqueda=document.getElementById("search");
+
+  document.querySelector("#form-busqueda").onsubmit = (e)=> {
+     e.preventDefault();
+     let HTMLresultados = "";
+     let checkcategories = [];
+     itemsCheckboxes.forEach(checkbox => {
+         if(checkbox.checked ){
+             checkcategories.push(checkbox.value);  
+         }
+         
+     });
  
- }
+     console.log(checkcategories);
+ 
+     let textoingresado = inputBusqueda.value.toLowerCase().trim();
+     HTMLresultados = Busqueda(checkcategories,textoingresado);
+ 
+ 
+     document.querySelector('div.events').innerHTML = HTMLresultados; 
+   
+
+  }
+
 
  
+  
+
+
+
+
+ 
+  
+
