@@ -6,7 +6,7 @@ async function getData(){
   localStorage.setItem("data",JSON.stringify(data))
 } 
 
-
+getData();
 
 /* 
 let data = {

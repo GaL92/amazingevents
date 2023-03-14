@@ -1,3 +1,7 @@
+let data=localStorage.getItem("data");
+  data = JSON.parse(data)
+console.log(data); 
+
 let pastevents = "" ;
 let cardContainer = document.getElementById("card-container");
 let pasteventslist=[];

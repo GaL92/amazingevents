@@ -1,3 +1,7 @@
+let data=localStorage.getItem("data");
+  data = JSON.parse(data)
+console.log(data); 
+
 let upcomingevents = "" ;
 let cardContainer = document.getElementById("card-container");
 let upcomingeventslist=[];
