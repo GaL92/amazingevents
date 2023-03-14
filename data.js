@@ -1,4 +1,14 @@
 
+async function getData(){
+  await fetch("https://mindhub-xj03.onrender.com/api/amazing")
+  .then(respuesta => respuesta.json())
+  .then(json => data=json)
+  localStorage.setItem("data",JSON.stringify(data))
+} 
+
+
+
+/* 
 let data = {
   "currentDate": "2022-01-01",
   "events": [
@@ -171,7 +181,7 @@ let data = {
       "price":250
     }
   ]
-};
+}; */
   
 
 function createCard(event){
@@ -181,7 +191,7 @@ function createCard(event){
     <div class="card-body">
       <h5 class="${event.name}">${event.name}</h5>
       <p class="${event.description}">${event.description}</p>
-      <div class=" precio-vermas d-grid gap-2 d-md-flex">
+      <div class="d-grid gap-2 d-md-flex" id="precio-vermas">
           <p>Price: US$ ${event.price}</p>  
           <a href="./details.html?id=${event._id}" class="btn  btn-outline-secondary ">Ver más..</a>
         </div>
@@ -205,5 +215,4 @@ function crearCheckbox(category) {
   <label class="form-check-label" for="checkbox${category}">${category}</label>
 </div>`;
 } 
-
 

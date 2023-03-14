@@ -72,13 +72,12 @@ button.navbar-toggler{
     padding: 7px;
 }
 
-.precio-vermas {
-    display: inline-flex;
-    align-items: flex-end;
-    align-content: end;
-    justify-content: space-between;
-    position: relative;
-    top: 5px;
+#precio-vermas {
+    display: flex !important;
+    align-items: flex-end !important;
+    align-content: end !important;
+    justify-content: space-between !important;
+    margin-bottom: 5px !important;
     
 }
 
@@ -196,3 +195,5 @@ table tr{
 .btn-outline-secondary{
     color:black !important;
 }
+
+
