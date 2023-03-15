@@ -1,7 +1,5 @@
 
-let data=localStorage.getItem("data");
-  data = JSON.parse(data)
-console.log(data); 
+
 
 let home = "" ;
 let cardContainer = document.getElementById("card-container")

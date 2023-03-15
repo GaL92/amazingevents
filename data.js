@@ -1,4 +1,6 @@
 
+let dataamazing=[];
+
 async function getData(){
   await fetch("https://mindhub-xj03.onrender.com/api/amazing")
   .then(respuesta => respuesta.json())
@@ -7,6 +9,11 @@ async function getData(){
 } 
 
 getData();
+
+let data=localStorage.getItem("data");
+  data = JSON.parse(data)
+console.log(data);
+
 
 /* 
 let data = {
