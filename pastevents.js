@@ -1,4 +1,4 @@
-
+// Crear card eventos pasados
 
 let pastevents = "" ;
 let cardContainer = document.getElementById("card-container");
@@ -19,6 +19,8 @@ for (let event of data.events){
 
 cardContainer.innerHTML = pastevents;
 
+// Crear checkbox por categorias
+
 let checkbox = document.getElementById("checkbox");
 let home2 = "";
 
@@ -28,9 +30,70 @@ for(let category of categories){
 
 checkbox.innerHTML = home2;
 
-
 let itemsCheckboxes = document.querySelectorAll(".form-check-input");
 console.log(itemsCheckboxes);
+
+// funcion Busqueda
+
+function Busqueda(categories,textoingresado){
+
+    let HTMLresultados="";
+
+    if(categories.length>0 && textoingresado == ""){ //Filtras por checkbox pero no usás la búsqueda
+        pasteventslist.filter(event => categories.includes(event.category)).forEach(event =>
+            {HTMLresultados += createCard(event)
+                
+                });
+      
+            console.log(HTMLresultados);
+            
+    }else if(categories.length>0 && textoingresado != ""){ //1°Checkeas una categoría y 2° usás la búsqueda
+        
+       pasteventslist.filter(event => categories.includes(event.category)).filter(event =>event.name.toLowerCase().includes(textoingresado) || event.description.toLowerCase().includes(textoingresado)).forEach(event =>
+            {HTMLresultados += createCard(event)
+
+                    
+            });
+
+            if(HTMLresultados == ""){
+                HTMLresultados += `<div class="caja-section"><h2>No hay resultados para esta búsqueda.</h2></div>";`
+    
+            };
+            
+      
+            console.log(HTMLresultados);
+            
+    }else if(categories.length==0 && textoingresado !== ""){
+        pasteventslist.filter(event =>event.name.toLowerCase().includes(textoingresado) || event.description.toLowerCase().includes(textoingresado)).forEach(event =>
+       
+            {HTMLresultados += createCard(event)});
+
+            if(HTMLresultados == ""){
+                HTMLresultados += `<div class="caja-section"><h2>No hay resultados para esta búsqueda.</h2></div>";`
+    
+            };
+
+    }else if(categories.length==0 && textoingresado == ""){
+            pasteventslist.forEach(event =>
+            {HTMLresultados += createCard(event)});
+
+            if(HTMLresultados == ""){
+                HTMLresultados += `<div class="caja-section"><h2>No hay resultados para esta búsqueda.</h2></div>";`
+    
+            };
+
+    }
+        
+
+        return HTMLresultados;
+  }
+
+
+
+
+// Busqueda por categorias con checkbox
+
+
 
 itemsCheckboxes.forEach(checkbox => checkbox.onchange = () =>{
     let HTMLresultados = "";
@@ -54,48 +117,7 @@ itemsCheckboxes.forEach(checkbox => checkbox.onchange = () =>{
   }  );
 
 
-  function Busqueda(categories,textoingresado){
-
-    let HTMLresultados="";
-
-    if(categories.length>0 && textoingresado == ""){ //Filtras por checkbox pero no usás la búsqueda
-       pasteventslist.filter(event => categories.includes(event.category)).forEach(event =>
-            {HTMLresultados += createCard(event)
-                
-                });
-      
-            console.log(HTMLresultados);
-            
-    }else if(categories.length>0 && textoingresado != ""){ //1°Checkeas una categoría y 2° usás la búsqueda
-        
-       pasteventslist.filter(event => categories.includes(event.category)).filter(event =>event.name.toLowerCase().includes(textoingresado) || event.description.toLowerCase().includes(textoingresado)).forEach(event =>
-            {HTMLresultados += createCard(event)
-
-                    
-            });
-
-            if(HTMLresultados == ""){
-                HTMLresultados += `<div class="caja-section"><h2>No hay resultados para esta búsqueda.</h2></div>";`
-    
-            };
-            
-      
-            console.log(HTMLresultados);
-            
-    }else if(categories.length==0 && textoingresado == ""){
-            pasteventslist.forEach(event =>
-            {HTMLresultados += createCard(event)});
-
-            if(HTMLresultados == ""){
-                HTMLresultados += `<div class="caja-section"><h2>No hay resultados para esta búsqueda.</h2></div>";`
-    
-            };
-
-    }
-        
-
-        return HTMLresultados;
-  }
+  // Busqueda por search (name y description)
 
   let inputBusqueda=document.getElementById("search");
 

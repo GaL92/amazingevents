@@ -30,34 +30,14 @@ checkbox.innerHTML = home2;
 let itemsCheckboxes = document.querySelectorAll(".form-check-input");
 console.log(itemsCheckboxes);
 
-itemsCheckboxes.forEach(checkbox => checkbox.onchange = () =>{
-    let HTMLresultados = "";
-    let checkcategories = [];
-    itemsCheckboxes.forEach(checkbox => {
-        if(checkbox.checked){
-            checkcategories.push(checkbox.value);
-            
-        }  
-        
-    });
+// funcion Busqueda
 
-    console.log(checkcategories);
-    
-    let textoingresado = inputBusqueda.value.toLowerCase().trim();
-    HTMLresultados = Busqueda(checkcategories,textoingresado);
-
-
-    document.querySelector('div.events').innerHTML = HTMLresultados; 
-    
-  }  );
-
-
-  function Busqueda(categories,textoingresado){
+function Busqueda(categories,textoingresado){
 
     let HTMLresultados="";
 
     if(categories.length>0 && textoingresado == ""){ //Filtras por checkbox pero no usás la búsqueda
-       upcomingeventslist.filter(event => categories.includes(event.category)).forEach(event =>
+        upcomingeventslist.filter(event => categories.includes(event.category)).forEach(event =>
             {HTMLresultados += createCard(event)
                 
                 });
@@ -80,8 +60,18 @@ itemsCheckboxes.forEach(checkbox => checkbox.onchange = () =>{
       
             console.log(HTMLresultados);
             
+    }else if(categories.length==0 && textoingresado !== ""){
+        upcomingeventslist.filter(event =>event.name.toLowerCase().includes(textoingresado) || event.description.toLowerCase().includes(textoingresado)).forEach(event =>
+       
+            {HTMLresultados += createCard(event)});
+
+            if(HTMLresultados == ""){
+                HTMLresultados += `<div class="caja-section"><h2>No hay resultados para esta búsqueda.</h2></div>";`
+    
+            };
+
     }else if(categories.length==0 && textoingresado == ""){
-           upcomingeventslist.forEach(event =>
+            upcomingeventslist.forEach(event =>
             {HTMLresultados += createCard(event)});
 
             if(HTMLresultados == ""){
@@ -94,6 +84,36 @@ itemsCheckboxes.forEach(checkbox => checkbox.onchange = () =>{
 
         return HTMLresultados;
   }
+
+
+
+
+// Busqueda por categorias con checkbox
+
+
+itemsCheckboxes.forEach(checkbox => checkbox.onchange = () =>{
+    let HTMLresultados = "";
+    let checkcategories = [];
+    itemsCheckboxes.forEach(checkbox => {
+        if(checkbox.checked){
+            checkcategories.push(checkbox.value);
+            
+        }  
+        
+    });
+
+    console.log(checkcategories);
+    
+    let textoingresado = inputBusqueda.value.toLowerCase().trim();
+    HTMLresultados = Busqueda(checkcategories,textoingresado);
+
+
+    document.querySelector('div.events').innerHTML = HTMLresultados; 
+    
+  }  );
+
+
+  // Busqueda por search (name y description)
 
   let inputBusqueda=document.getElementById("search");
 
