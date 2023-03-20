@@ -1,5 +1,5 @@
 
-
+// Crear cards 
 
 let home = "" ;
 let cardContainer = document.getElementById("card-container")
@@ -18,6 +18,8 @@ for (let event of data.events){
 cardContainer.innerHTML = home;
 
 
+// Crear checkbox por categorias
+
 let checkbox = document.getElementById("checkbox");
 let home2 = "";
 
@@ -32,28 +34,9 @@ checkbox.innerHTML = home2;
 let itemsCheckboxes = document.querySelectorAll(".form-check-input");
 console.log(itemsCheckboxes);
 
-itemsCheckboxes.forEach(checkbox => checkbox.onchange = () =>{
-    let HTMLresultados = "";
-    let checkcategories = [];
-    itemsCheckboxes.forEach(checkbox => {
-        if(checkbox.checked ){
-            checkcategories.push(checkbox.value);  
-        }
-        
-    });
+// funcion Busqueda
 
-    console.log(checkcategories);
-
-    let textoingresado = inputBusqueda.value.toLowerCase().trim();
-    HTMLresultados = Busqueda(checkcategories,textoingresado)
-
-
-    document.querySelector('div.events').innerHTML = HTMLresultados; 
-    
-  }  );
-
-
-  function Busqueda(categories,textoingresado){
+function Busqueda(categories,textoingresado){
 
     let HTMLresultados="";
 
@@ -105,6 +88,34 @@ itemsCheckboxes.forEach(checkbox => checkbox.onchange = () =>{
 
         return HTMLresultados;
   }
+
+
+
+
+/// Busqueda por categorias con chackbox
+
+itemsCheckboxes.forEach(checkbox => checkbox.onchange = () =>{
+    let HTMLresultados = "";
+    let checkcategories = [];
+    itemsCheckboxes.forEach(checkbox => {
+        if(checkbox.checked ){
+            checkcategories.push(checkbox.value);  
+        }
+        
+    });
+
+    console.log(checkcategories);
+
+    let textoingresado = inputBusqueda.value.toLowerCase().trim();
+    HTMLresultados = Busqueda(checkcategories,textoingresado)
+
+
+    document.querySelector('div.events').innerHTML = HTMLresultados; 
+    
+  }  );
+
+
+  // Busqueda por search (name y description)
 
   let inputBusqueda=document.getElementById("search");
 
