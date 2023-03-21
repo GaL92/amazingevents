@@ -1,4 +1,9 @@
 
+#logohead{
+    margin-left: 20px;
+}
+
+
 .banner{
     display: flex;
     justify-content: center;
@@ -10,11 +15,12 @@
     color:rgb(50, 50, 50);
 
 }
-
-.l-icon { 
-    display: flex;
-    padding-top: 5px;
+.banner-titulo{
+    display: inline-flex;
+    justify-content:center;
+    align-items: center;
 }
+
 
 .navbar{
     background-color: hsla(230, 80%, 12%,0.9);
@@ -44,23 +50,40 @@ button.navbar-toggler{
     border-color: rgb(82, 84, 84) !important;
 }
 
+.btn-outline-secondary{
+    color:black !important;
+}
+
 .controles{
     display:flex;
     flex-wrap: wrap;
     justify-content:space-between;
     align-items: center;
-    background-color: hsla(232, 49%, 51%, 0.6);
-    
+    background-color: hsla(232, 49%, 51%, 0.6);   
 }
-
 
 .search{
  display: flex;
 }
+
+#search{
+    width: 300px !important;
+}
+
 .form-control{
     max-width: 100%;
 }
-.card{
+
+.card-container{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 5px;
+   
+}
+
+
+ .card{
     display: inline-flex;
     flex-wrap: wrap;
     flex-grow: 1;
@@ -68,21 +91,29 @@ button.navbar-toggler{
 
 .card img{
     max-width: 100%;
-    max-height: 100%;
-    padding: 7px;
-}
+    padding: 8px;
+    border-radius: 8px;
+    text-align: center !important;
 
+}
+.price{
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    top:10px !important;
+    font-size: 20px;
+}
 #precio-vermas {
     display: flex !important;
-    align-items: flex-end !important;
-    align-content: end !important;
+    flex-direction: row;
+    align-items: center !important;
     justify-content: space-between !important;
     margin-bottom: 5px !important;
     
 }
 
 .card-body a{
-    
     background: rgba(70, 68, 70, 0.2);
 }
 
@@ -90,8 +121,6 @@ button.navbar-toggler{
     display:flex;
     align-items: center;
     justify-content: center;
-    
-    
 }
 
 .img-details{
@@ -105,7 +134,6 @@ button.navbar-toggler{
     display:flex;
     align-items: center;
     justify-content: center;
-
 }
 
 .caja-section{
@@ -114,10 +142,8 @@ button.navbar-toggler{
     align-items: center;
     justify-content: center;
     background-color: hsla(232, 49%, 51%, 0.6);
-    
 }
 .form-contact{
-    
     width: 40rem;
     height: 23rem;
     margin: 20px;
@@ -127,7 +153,6 @@ button.navbar-toggler{
     border-color: rgb(8, 8, 8,0.2);
     border-radius: 5px;
     font-size:18px;
-    
 }
 
 .form-contact form button{
@@ -145,8 +170,6 @@ button.navbar-toggler{
     background-color: hsla(232, 49%, 51%, 0.6);
     max-width: 100%;
     margin: auto;
-    
-
 }
 
 footer{
@@ -155,7 +178,6 @@ footer{
     align-items:center;
     padding: 20px;
     background-color: hsla(232, 49%, 51%, 0.805);
-    
 }
 
 .redes{
@@ -173,27 +195,26 @@ footer{
     justify-content: center;
     max-width: 100%;
     background-color: hsla(232, 49%, 51%, 0.6);
-}
-
-
-
-table tr{
-    
     border-color: black;
     text-align: center;
     font-weight: bold;
-    background-color:rgba(239, 233, 239, 0.6);
-    
 }
 
+
+
+table tbody{
+    background-color:rgba(239, 233, 239, 0.6);
+}
+
+table thead {
+    background-color:rgba(239, 233, 239, 0.4);
+}
 .container-fluid{
     max-width: 100%;
     margin: none;
     padding: 0 !important;
 }
 
-.btn-outline-secondary{
-    color:black !important;
-}
+
 
 

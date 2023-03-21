@@ -12,8 +12,8 @@
 
 <body>
   <nav class="navbar navbar-expand-lg ">
-    <div class="container-fluid">
-      <img src="./assets/Logo-AE.png" width="200em" height="60em" alt="Logo-Amazing Events">
+    <div class="container-fluid" id="logohead">
+      <img src="./assets/Logo-AE.png" width="200em" height="60em" alt="Logo-Amazing Events" >
       <button class="navbar-toggler " type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation" >
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -29,34 +29,39 @@
     </div>
   </nav>
   <header>
-    <div class="banner">
+    <div class="banner" >
      
-      <div class="l-icon">
-      <i>&#5176;</i>
+      <div class="flecha-previous" col-1>
+        <a href="./home.html">
+          <img src="./assets/atras.png" width="20px"  alt="flecha-anterior">
+        </a>
       </div>
-      <div class="banner-titulo px-5">
-      <h2><strong>HOME</strong></h2>
-      </div>
-     <div class="l-icon">
-      <a href="./upcomingevents.html"><i>&#5171;</i></a>
-      </div>
-  
 
+      <div class="banner-titulo col-10">
+        <h3><strong>HOME</strong></h3>
+      </div>
+
+      <div class="flecha-previous" col-1>
+        <a href="./upcomingevents.html">
+          <img src="./assets/proximo.png" width="20px"  alt="flecha-anterior">
+        </a>
+      </div>
     </div>
+
   </header>
   
-<div class="container-fluid ">
-  <div class="controles p-3" >
+<div class="container-fluid "  id="controles">
+  <div class="controles px-4 py-3" >
     
       <div class="checkboxes col-sm-5 col-xl-8" id="checkbox">
         
        
         </div>  
 
-      <div class="search "  >
+      <div class="search" >
         <form class="d-flex  " role="search" id="form-busqueda">
           <input class="form-control" type="search" placeholder="Search" aria-label="Search" id="search">
-          <button class="btn" type="submit"><i>&#128269;</i></button>
+          <button class="btn" type="submit"><img src="./assets/busqueda.png" width="25px" alt=""></button>
         </form>
       </div>
     
@@ -64,10 +69,10 @@
     </div>
    
   
-    <div class="events row container " id="card-container" >
+    <div class="events row container "  id="card-container" >
       
         
-      </div>
+    </div>
 
   </div>
  

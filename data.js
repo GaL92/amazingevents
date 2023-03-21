@@ -17,18 +17,25 @@ console.log(data);
 
 
 function createCard(event){
-  return `<div class="col-12 p-2 col-md-4 col-xl-3" id="${event.id}">
-  <div class="card h-100">
-    <img src="${event.image}">
-    <div class="card-body">
+  return `<div class=" card-container col-12 p-2 col-md-4 col-xl-3" id="${event._id}">
+  <div class="card" >
+
+  <img src="${event.image}" style ="width:16 rem; height:15rem">
+  <div class="card-body">
+      
       <h5 class="${event.name}">${event.name}</h5>
       <p class="${event.description}">${event.description}</p>
-      <div class="d-grid gap-2 d-md-flex" id="precio-vermas">
+      
+    </div>
+    
+    <div class="d-grid gap-2 d-md-flex px-3 py-2-" id="precio-vermas">
+        <div class="price">
           <p>Price: US$ ${event.price}</p>  
+          </div>
           <a href="./details.html?id=${event._id}" class="btn  btn-outline-secondary ">Ver más..</a>
         </div>
-    </div>
-  </div>
+        </div>
+  
   </div>`
 }
 

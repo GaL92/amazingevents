@@ -12,7 +12,7 @@
 
 <body>
     <nav class="navbar navbar-expand-lg ">
-      <div class="container-fluid">
+      <div class="container-fluid" id="logohead">
         <img src="./assets/Logo-AE.png" width="200em" height="60em" alt="Logo-Amazing Events">
         <button class="navbar-toggler " type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation" >
           <span class="navbar-toggler-icon"></span>
@@ -31,21 +31,27 @@
     <header>
       <div class="banner">
        
-        <div class="l-icon">
-        <i>&#5176;</i>
+        <div class="flecha-previous" col-1>
+          <a href="./home.html">
+            <img src="./assets/atras.png" width="20px"  alt="flecha-anterior">
+          </a>
         </div>
-        <div class="banner-titulo px-5">
-        <h2><strong>UPCOMING-EVENTS</strong></h2>
+  
+        <div class="banner-titulo col-10">
+          <h3><strong>UPCOMING EVENTS</strong></h3>
         </div>
-       <div class="l-icon">
-        <a href="./upcomingevents.html"><i>&#5171;</i></a>
+  
+        <div class="flecha-previous" col-1>
+          <a href="./pastevents.html">
+            <img src="./assets/proximo.png" width="20px"  alt="flecha-anterior">
+          </a>
         </div>
     
   
       </div>
     </header>
   
-      <div class="controles p-4">
+      <div class="controles p-4"  id="controles">
         <div class="checkboxes" id="checkbox">
           
         </div>
@@ -53,7 +59,7 @@
         <div class="search "  >
           <form class="d-flex  " role="search" id="form-busqueda">
             <input class="form-control" type="search" placeholder="Search" aria-label="Search" id="search">
-            <button class="btn" type="submit"><i>&#128269;</i></button>
+            <button class="btn" type="submit"><img src="./assets/busqueda.png" width="25px" alt=""></button>
           </form>
         </div>
        

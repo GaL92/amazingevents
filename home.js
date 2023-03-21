@@ -2,7 +2,7 @@
 // Crear cards 
 
 let home = "" ;
-let cardContainer = document.getElementById("card-container")
+let cardContainer = document.getElementById("card-container");
 
 for (let event of data.events){
 
