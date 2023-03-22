@@ -1,28 +1,25 @@
 
-// Crear cards 
 
-let home = "" ;
+let upcomingevents = "" ;
 let cardContainer = document.getElementById("card-container");
+let upcomingeventslist=[];
 
 for (let event of data.events){
 
     let currentDate= new Date(data.currentDate);
     let eventDate = new Date(event.date);
   
-    if (eventDate>currentDate||eventDate<currentDate){
-        home += createCard(event);
+    if (eventDate>currentDate){
+        upcomingevents += createCard(event);
+        upcomingeventslist.push(event);
 
     }
 }
 
-cardContainer.innerHTML = home;
-
-
-// Crear checkbox por categorias
+cardContainer.innerHTML = upcomingevents;
 
 let checkbox = document.getElementById("checkbox");
 let home2 = "";
-
 
 for(let category of categories){
     home2 += crearCheckbox(category);
@@ -31,8 +28,6 @@ for(let category of categories){
 checkbox.innerHTML = home2;
 
 
-let itemsCheckboxes = document.querySelectorAll(".form-check-input");
-console.log(itemsCheckboxes);
 
 // funcion Busqueda
 
@@ -41,7 +36,7 @@ function Busqueda(categories,textoingresado){
     let HTMLresultados="";
 
     if(categories.length>0 && textoingresado == ""){ //Filtras por checkbox pero no usás la búsqueda
-        data.events.filter(event => categories.includes(event.category)).forEach(event =>
+        upcomingeventslist.filter(event => categories.includes(event.category)).forEach(event =>
             {HTMLresultados += createCard(event)
                 
                 });
@@ -50,7 +45,7 @@ function Busqueda(categories,textoingresado){
             
     }else if(categories.length>0 && textoingresado != ""){ //1°Checkeas una categoría y 2° usás la búsqueda
         
-       data.events.filter(event => categories.includes(event.category)).filter(event =>event.name.toLowerCase().includes(textoingresado) || event.description.toLowerCase().includes(textoingresado)).forEach(event =>
+       upcomingeventslist.filter(event => categories.includes(event.category)).filter(event =>event.name.toLowerCase().includes(textoingresado) || event.description.toLowerCase().includes(textoingresado)).forEach(event =>
             {HTMLresultados += createCard(event)
 
                     
@@ -65,7 +60,7 @@ function Busqueda(categories,textoingresado){
             console.log(HTMLresultados);
             
     }else if(categories.length==0 && textoingresado !== ""){
-        data.events.filter(event =>event.name.toLowerCase().includes(textoingresado) || event.description.toLowerCase().includes(textoingresado)).forEach(event =>
+        upcomingeventslist.filter(event =>event.name.toLowerCase().includes(textoingresado) || event.description.toLowerCase().includes(textoingresado)).forEach(event =>
        
             {HTMLresultados += createCard(event)});
 
@@ -75,7 +70,7 @@ function Busqueda(categories,textoingresado){
             };
 
     }else if(categories.length==0 && textoingresado == ""){
-            data.events.forEach(event =>
+            upcomingeventslist.forEach(event =>
             {HTMLresultados += createCard(event)});
 
             if(HTMLresultados == ""){
@@ -92,22 +87,26 @@ function Busqueda(categories,textoingresado){
 
 
 
-/// Busqueda por categorias con chackbox
+// Busqueda por categorias con checkbox
+
+let itemsCheckboxes = document.querySelectorAll(".form-check-input");
+console.log(itemsCheckboxes);
 
 itemsCheckboxes.forEach(checkbox => checkbox.onchange = () =>{
     let HTMLresultados = "";
     let checkcategories = [];
     itemsCheckboxes.forEach(checkbox => {
-        if(checkbox.checked ){
-            checkcategories.push(checkbox.value);  
-        }
+        if(checkbox.checked){
+            checkcategories.push(checkbox.value);
+            
+        }  
         
     });
 
     console.log(checkcategories);
-
+    
     let textoingresado = inputBusqueda.value.toLowerCase().trim();
-    HTMLresultados = Busqueda(checkcategories,textoingresado)
+    HTMLresultados = Busqueda(checkcategories,textoingresado);
 
 
     document.querySelector('div.events').innerHTML = HTMLresultados; 
@@ -143,6 +142,9 @@ itemsCheckboxes.forEach(checkbox => checkbox.onchange = () =>{
 
 
  
+  
+
+
 
 
  

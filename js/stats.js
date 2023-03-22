@@ -1,4 +1,4 @@
-let stats="";
+
 let pasteventslist= [];
 
 for (let event of data.events){
